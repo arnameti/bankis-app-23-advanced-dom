@@ -33,8 +33,39 @@ document.addEventListener('keydown', function (e) {
 });
 
 //////////////////////////////////////////////////////////////////////////////
-// Menu Fade Animation
-nav.addEventListener('mouseover', function (e) {
+// Menu Fade Animation I
+// nav.addEventListener('mouseover', function (e) {
+//   if (e.target.classList.contains('nav__link')) {
+//     console.log(e.target);
+
+//     const siblings = document.querySelectorAll('.nav__link');
+
+//     siblings.forEach(function (sibling) {
+//       if (sibling !== e.target) {
+//         sibling.style.opacity = '0.5';
+//       }
+//       logo.style.opacity = '0.5';
+//     });
+//   }
+// });
+
+// nav.addEventListener('mouseout', function (e) {
+//   if (e.target.classList.contains('nav__link')) {
+//     console.log(e.target);
+
+//     const siblings = document.querySelectorAll('.nav__link');
+
+//     siblings.forEach(function (sibling) {
+//       if (sibling !== e.target) {
+//         sibling.style.opacity = '1';
+//       }
+//       logo.style.opacity = '1';
+//     });
+//   }
+// });
+
+// Menu Fade Animation II
+const handleHover = function (e, opacity) {
   if (e.target.classList.contains('nav__link')) {
     console.log(e.target);
 
@@ -42,24 +73,19 @@ nav.addEventListener('mouseover', function (e) {
 
     siblings.forEach(function (sibling) {
       if (sibling !== e.target) {
-        sibling.style.opacity = '0.5';
+        sibling.style.opacity = opacity;
       }
-      logo.style.opacity = '0.5';
+      logo.style.opacity = opacity;
     });
   }
+};
+
+nav.addEventListener('mouseover', function (e) {
+  handleHover(e, 0.5);
 });
 
 nav.addEventListener('mouseout', function (e) {
-  if (e.target.classList.contains('nav__link')) {
-    console.log(e.target);
-
-    const siblings = document.querySelectorAll('.nav__link');
-
-    siblings.forEach(function (sibling) {
-      if (sibling !== e.target) {
-        sibling.style.opacity = '1';
-      }
-      logo.style.opacity = '1';
-    });
-  }
+  handleHover(e, 1);
 });
+
+
