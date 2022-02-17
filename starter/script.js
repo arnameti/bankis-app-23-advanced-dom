@@ -155,3 +155,14 @@ document.querySelectorAll('.nav__link').forEach(function (el) {
     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
   });
 });
+//////////////////////////////////////////////////////////////////////////////
+// Sticky Navigation - // Inefficient Way
+const section1_top = document
+  .querySelector('#section--1')
+  .getBoundingClientRect().top;
+const navHeight = nav.getBoundingClientRect().height;
+
+window.addEventListener('scroll', function () {
+  if (window.scrollY > section1_top - navHeight) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+});
