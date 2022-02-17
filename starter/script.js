@@ -115,3 +115,21 @@ tabsContainer.addEventListener('click', function (e) {
 });
 
 //////////////////////////////////////////////////////////////////////////////
+//Button Scrolling
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+
+btnScrollTo.addEventListener('click', function (e) {
+  const section1 = document.querySelector('#section--1');
+  const section1_top = section1.getBoundingClientRect().top;
+  
+  window.scrollTo({
+    top: section1_top + window.pageYOffset,
+    behavior: 'smooth'
+  });
+
+  
+  // section1.scrollIntoView({ behavior: 'smooth' });
+});
+
+
