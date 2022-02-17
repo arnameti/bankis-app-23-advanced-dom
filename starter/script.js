@@ -88,4 +88,18 @@ nav.addEventListener('mouseout', function (e) {
   handleHover(e, 1);
 });
 
+//////////////////////////////////////////////////////////////////////////////
+// Tabbed component
 
+const tabsContainer = document.querySelector('.operations__tab-container');
+
+tabsContainer.addEventListener('click', function (e) {
+  const clickedTab = e.target.closest('.operations__tab');
+
+  if (!clickedTab) return;
+
+  document
+    .querySelectorAll('.operations__tab')
+    .forEach(tab => tab.classList.remove('operations__tab--active'));
+  clickedTab.classList.add('operations__tab--active');
+});
